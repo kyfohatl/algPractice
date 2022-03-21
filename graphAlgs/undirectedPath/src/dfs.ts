@@ -1,19 +1,19 @@
 import { AdjList } from "./commonTypes.js";
 
-export default function bfs(adjList: AdjList, src: string, dst: string) {
+export default function dfs(adjList: AdjList, src: string, dst: string) {
+  const stack: string[] = [src]
   const visited: Set<string> = new Set()
-  const queue = [src]
-  while (queue.length > 0) {
-    // Remove first node from queue
-    const curNode = queue.shift() as string
+  while (stack.length > 0) {
+    // Pop the top node from the stack
+    const curNode = stack.pop() as string
     // If we have reached the destination, return
     if (curNode === dst) return true
     // Mark node as visited
     visited.add(curNode)
-    // Now add any neighbors not visited to the back of the queue
+    // Add any neighbors not visited to the top of the stack
     adjList[curNode].forEach((neighbor) => {
       if (!visited.has(neighbor)) {
-        queue.push(neighbor)
+        stack.push(neighbor)
       }
     })
   }

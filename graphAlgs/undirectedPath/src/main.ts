@@ -8,4 +8,5 @@ const edges: [string, string][] = [
   ["o", "n"]
 ]
 
-console.log(undirectedPath(edges, "i", "k"))
+console.log("BFS:", undirectedPath(edges, "k", "o", "BFS"))
+console.log("DFS:", undirectedPath(edges, "k", "o", "DFS"))
