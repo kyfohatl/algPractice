@@ -9,26 +9,50 @@ function gridToAdjList(grid: string[][]) {
       // Add the cell itself
       adjList[cellName] = []
       // Add above neighbor
-      if (r - 1 >= 0) adjList[cellName].push({r: r-1, c: c})
+      if (r - 1 >= 0) adjList[cellName].push({ r: r - 1, c: c })
       // Add below neighbor
-      if (r + 1 < grid.length) adjList[cellName].push({r: r+1, c: c})
+      if (r + 1 < grid.length) adjList[cellName].push({ r: r + 1, c: c })
       // Add left neighbor
-      if (c - 1 >= 0) adjList[cellName].push({r: r, c: c-1})
+      if (c - 1 >= 0) adjList[cellName].push({ r: r, c: c - 1 })
       // Add right neighbor
-      if (c + 1 < grid[r].length) adjList[cellName].push({r: r, c: c+1})
+      if (c + 1 < grid[r].length) adjList[cellName].push({ r: r, c: c + 1 })
     }
   }
 
   return adjList
 }
 
-const grid = [
+const grid1 = [
   ['W', 'L', 'W', 'W', 'W'],
   ['W', 'L', 'W', 'W', 'W'],
   ['W', 'W', 'W', 'L', 'W'],
   ['W', 'W', 'L', 'L', 'W'],
   ['L', 'W', 'W', 'L', 'L'],
   ['L', 'L', 'W', 'W', 'W'],
-];
+]
 
-console.log(getIslands(gridToAdjList(grid), grid))
+const grid2 = [
+  ['L', 'W', 'W', 'L', 'W'],
+  ['L', 'W', 'W', 'L', 'L'],
+  ['W', 'L', 'W', 'L', 'W'],
+  ['W', 'W', 'W', 'W', 'W'],
+  ['W', 'W', 'L', 'L', 'L'],
+]
+
+const grid3 = [
+  ['L', 'L', 'L'],
+  ['L', 'L', 'L'],
+  ['L', 'L', 'L'],
+]
+
+const grid4 = [
+  ['W', 'W'],
+  ['W', 'W'],
+  ['W', 'W'],
+]
+
+
+console.log(getIslands(gridToAdjList(grid1), grid1))
+console.log(getIslands(gridToAdjList(grid2), grid2))
+console.log(getIslands(gridToAdjList(grid3), grid3))
+console.log(getIslands(gridToAdjList(grid4), grid4))
